@@ -10,5 +10,7 @@
 <a href="emp//empInfo.do">AjaxTest</a>
 <br>
 <a href="book/bookInfo.do">AjaxBook</a>
+<br>
+test
 </body>
 </html>
