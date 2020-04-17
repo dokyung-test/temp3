@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="book">
+	<select id="bookName" resultType="spring.model.BookDto" parameterType="String">
+	select o.bname, b.publisher, o.saleprice, o.orderid from book b natural join orders o where b.bookid = o.bookid and o.bname like concat('%',#{bname},'%') order by o.orderid
+	</select>
+	
+	<select id="custName" resultType="spring.model.BookDto" parameterType="String">
+	select o.bname, o.saleprice, b.publisher, o.orderdate from customer c natural join orders o  natural join book b where c.custid = o.custid and c.name like concat('%',#{name},'%') and b.bookid = o.bookid
+	</select>
+
+</mapper>
